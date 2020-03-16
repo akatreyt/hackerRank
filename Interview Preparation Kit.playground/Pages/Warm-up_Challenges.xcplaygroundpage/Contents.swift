@@ -133,7 +133,7 @@ func repeatedString(s: String, n: Int) -> Int {
 # Repeating String
 ## Easy
 */
-func repeatedString(s: String, n: Int) -> Int {
+func repeatedString2(s: String, n: Int) -> Int {
     let magicLetter = "a"
     
     let numberInString = Array(s).filter( { $0.lowercased() == magicLetter} ).count
@@ -154,5 +154,5 @@ func repeatedString(s: String, n: Int) -> Int {
     return total
 }
 
-//print(repeatedString(s: "aaa", n: 10))
+//print(repeatedString2(s: "aaa", n: 10))
 
