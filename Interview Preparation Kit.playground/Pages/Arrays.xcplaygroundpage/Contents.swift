@@ -2,6 +2,9 @@
  # 2D Array - DS
  ## Easy
  */
+import Foundation
+
+
 // Complete the hourglassSum function below.
 func hourglassSum(arr: [[Int]]) -> Int {
     let middleOffset = 1
@@ -104,6 +107,7 @@ let minSwapInput2 = [1,3,5,2,4,6,7]
 /*
  Terminated due to timeout
  */
+
 func arrayManipulation(n: Int, queries: [[Int]]) -> Int {
     var array = Array(repeating: 0, count: n)
     
@@ -133,8 +137,8 @@ let arrayManipulationInput1 = [[1, 5, 3], [4, 8, 7], [6, 9, 1]]
 //print(arrayManipulation(n: 10, queries: arrayManipulationInput1))
 
 /*
-Terminated due to timeout
-*/
+ Terminated due to timeout
+ */
 func arrayManipulation2(n: Int, queries: [[Int]]) -> Int {
     var dict = [Int:Int]()
     for q in queries{
@@ -159,7 +163,13 @@ let arrayManipulation2Input1 = [[1, 5, 3], [4, 8, 7], [6, 9, 1]]
 //print(arrayManipulation2(n: 5, queries: arrayManipulation2Input1))
 
 /*
-    from jorge and still timesout :(
+ from jorge and still timesout :(
+ 
+ using bigDataSet
+ Start jorge : 2020-03-14 20:56:27 +0000
+ 1000000
+ End jorge : 2020-03-14 20:57:36 +0000
+ 
  */
 func jorge(n: Int, queries: [[Int]]) -> Int {
     var dict = [Int:Int]()
@@ -177,7 +187,30 @@ func jorge(n: Int, queries: [[Int]]) -> Int {
             }
         }
     }
+    print(dict)
     return maxValue
 }
 let arrayManipulation2Input3 = [[2, 6, 8], [3, 5, 7], [1, 8, 1], [5, 9, 15]]
-//print(jorge(n: 10, queries: arrayManipulation2Input3))
+
+//print("Start jorge : \(NSDate.now)")
+//print(jorge(n: 10, queries: bigDataSet))
+//print("End jorge : \(NSDate.now)")
+
+func test1(n: Int, queries: [[Int]]) -> Int {
+    var maxValue = 0
+    for idx in 0...n{
+        let maxForIdx = queries.filter({
+            let range = $0[0]...$0[1]
+            return range.contains(idx)
+            }).reduce(0, {
+                $0 + $1[2]
+            })
+        if maxForIdx > maxValue{
+            maxValue = maxForIdx
+        }
+    }
+    return maxValue
+}
+print("Start test1 : \(NSDate.now)")
+print(test1(n: 10, queries: arrayManipulation2Input3))
+print("Start test1 : \(NSDate.now)")

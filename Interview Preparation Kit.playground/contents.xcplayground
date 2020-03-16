@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='Index'/>
+        <page name='Warm-up_Challenges'/>
         <page name='Arrays'/>
     </pages>
 </playground>
